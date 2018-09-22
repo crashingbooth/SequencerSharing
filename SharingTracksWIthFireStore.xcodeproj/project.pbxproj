@@ -14,6 +14,7 @@
 		1F3260E221566C26007921DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260E021566C26007921DF /* LaunchScreen.storyboard */; };
 		1F3260EA2156F283007921DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260E92156F283007921DF /* GoogleService-Info.plist */; };
 		1F3260EC2156F900007921DF /* CustomSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260EB2156F900007921DF /* CustomSequencer.swift */; };
+		1F3260EE2156FB44007921DF /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260ED2156FB44007921DF /* Track.swift */; };
 		810F7C45772051782BDD0C96 /* Pods_SharingTracksWIthFireStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		1F3260E321566C26007921DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3260E92156F283007921DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F3260EB2156F900007921DF /* CustomSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSequencer.swift; sourceTree = "<group>"; };
+		1F3260ED2156FB44007921DF /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharingTracksWIthFireStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		548F9AF35D7718CDEB3FD332 /* Pods-SharingTracksWIthFireStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingTracksWIthFireStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				1F3260EB2156F900007921DF /* CustomSequencer.swift */,
 				1F3260D921566C24007921DF /* ViewController.swift */,
 				1F3260DB21566C24007921DF /* Main.storyboard */,
+				1F3260ED2156FB44007921DF /* Track.swift */,
 				1F3260DE21566C26007921DF /* Assets.xcassets */,
 				1F3260E021566C26007921DF /* LaunchScreen.storyboard */,
 				1F3260E321566C26007921DF /* Info.plist */,
@@ -246,6 +249,7 @@
 				1F3260DA21566C24007921DF /* ViewController.swift in Sources */,
 				1F3260D821566C24007921DF /* AppDelegate.swift in Sources */,
 				1F3260EC2156F900007921DF /* CustomSequencer.swift in Sources */,
+				1F3260EE2156FB44007921DF /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
