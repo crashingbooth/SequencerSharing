@@ -12,9 +12,11 @@
 		1F3260DD21566C24007921DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260DB21566C24007921DF /* Main.storyboard */; };
 		1F3260DF21566C26007921DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260DE21566C26007921DF /* Assets.xcassets */; };
 		1F3260E221566C26007921DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260E021566C26007921DF /* LaunchScreen.storyboard */; };
+		810F7C45772051782BDD0C96 /* Pods_SharingTracksWIthFireStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14183784504D07FABDA45BD0 /* Pods-SharingTracksWIthFireStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingTracksWIthFireStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore.debug.xcconfig"; sourceTree = "<group>"; };
 		1F3260D421566C24007921DF /* SharingTracksWIthFireStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingTracksWIthFireStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3260D721566C24007921DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F3260D921566C24007921DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		1F3260DE21566C26007921DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3260E121566C26007921DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F3260E321566C26007921DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharingTracksWIthFireStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		548F9AF35D7718CDEB3FD332 /* Pods-SharingTracksWIthFireStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingTracksWIthFireStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810F7C45772051782BDD0C96 /* Pods_SharingTracksWIthFireStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				1F3260D621566C24007921DF /* SharingTracksWIthFireStore */,
 				1F3260D521566C24007921DF /* Products */,
+				D6B8B0FD58608FC60A98E937 /* Pods */,
+				F958601AAB1AFC0DFB3359A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = SharingTracksWIthFireStore;
 			sourceTree = "<group>";
 		};
+		D6B8B0FD58608FC60A98E937 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14183784504D07FABDA45BD0 /* Pods-SharingTracksWIthFireStore.debug.xcconfig */,
+				548F9AF35D7718CDEB3FD332 /* Pods-SharingTracksWIthFireStore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F958601AAB1AFC0DFB3359A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F3260E621566C26007921DF /* Build configuration list for PBXNativeTarget "SharingTracksWIthFireStore" */;
 			buildPhases = (
+				D20499E2140BFDD53233162E /* [CP] Check Pods Manifest.lock */,
 				1F3260D021566C24007921DF /* Sources */,
 				1F3260D121566C24007921DF /* Frameworks */,
 				1F3260D221566C24007921DF /* Resources */,
+				D77CA0EBDAAD619B82F00F6E /* [CP] Embed Pods Frameworks */,
+				A327F80FAB0516972A4F3229 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,80 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A327F80FAB0516972A4F3229 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D20499E2140BFDD53233162E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharingTracksWIthFireStore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D77CA0EBDAAD619B82F00F6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore-frameworks.sh",
+				"${PODS_ROOT}/AudioKit/iOS/AudioKitUI.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioKitUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F3260D021566C24007921DF /* Sources */ = {
@@ -280,15 +381,13 @@
 		};
 		1F3260E721566C26007921DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14183784504D07FABDA45BD0 /* Pods-SharingTracksWIthFireStore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M7XW9D2D49;
 				INFOPLIST_FILE = SharingTracksWIthFireStore/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crashingbooth.SharingTracksWIthFireStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +397,13 @@
 		};
 		1F3260E821566C26007921DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 548F9AF35D7718CDEB3FD332 /* Pods-SharingTracksWIthFireStore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M7XW9D2D49;
 				INFOPLIST_FILE = SharingTracksWIthFireStore/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crashingbooth.SharingTracksWIthFireStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
