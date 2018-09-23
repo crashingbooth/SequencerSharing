@@ -9,26 +9,38 @@
 import UIKit
 
 class SharedSequencerVC: UIViewController {
-
+    var customSeq: CustomSequencer!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        customSeq = CustomSequencer()
     }
+    
     @IBAction func loadFile(_ sender: Any) {
+        let picker = UIDocumentPickerViewController(documentTypes: ["public.midi-audio"], in: .import)
+        picker.delegate = self
+        picker.modalPresentationStyle = .fullScreen
+        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func sendTracks(_ sender: Any) {
+    
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func play(_ sender: Any) {
+    
     }
-    */
+    
+    @IBAction func stop(_ sender: Any) {
+    }
+    
+}
 
+
+extension SharedSequencerVC: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        customSeq.loadFromURL(urls[0])
+        navigationController?.popViewController(animated: true)
+        
+        
+    }
 }
