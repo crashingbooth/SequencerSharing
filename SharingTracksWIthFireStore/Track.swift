@@ -8,6 +8,9 @@
 
 import Foundation
 import AudioKit
+import Firebase
+
+
 
 struct Track {
     var trackNum: Int
@@ -41,3 +44,11 @@ struct MIDIEvent {
         self.duration = data.position.beats
     }
 }
+
+extension CustomSequencer {
+    func postTracks() {
+        let collection = Firestore.firestore().collection("tracks")
+        
+    }
+}
+
