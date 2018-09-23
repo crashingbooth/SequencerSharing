@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F3260D821566C24007921DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260D721566C24007921DF /* AppDelegate.swift */; };
-		1F3260DA21566C24007921DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260D921566C24007921DF /* ViewController.swift */; };
 		1F3260DD21566C24007921DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260DB21566C24007921DF /* Main.storyboard */; };
 		1F3260DF21566C26007921DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260DE21566C26007921DF /* Assets.xcassets */; };
 		1F3260E221566C26007921DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3260E021566C26007921DF /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 		14183784504D07FABDA45BD0 /* Pods-SharingTracksWIthFireStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingTracksWIthFireStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore.debug.xcconfig"; sourceTree = "<group>"; };
 		1F3260D421566C24007921DF /* SharingTracksWIthFireStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingTracksWIthFireStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3260D721566C24007921DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F3260D921566C24007921DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F3260DC21566C24007921DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F3260DE21566C26007921DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3260E121566C26007921DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 				1F3260E92156F283007921DF /* GoogleService-Info.plist */,
 				1F3260D721566C24007921DF /* AppDelegate.swift */,
 				1F3260EB2156F900007921DF /* CustomSequencer.swift */,
-				1F3260D921566C24007921DF /* ViewController.swift */,
 				1F3260DB21566C24007921DF /* Main.storyboard */,
 				1F3260EF2157B8A7007921DF /* SharedSequencerVC.swift */,
 				1F3260ED2156FB44007921DF /* Track.swift */,
@@ -254,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F3260DA21566C24007921DF /* ViewController.swift in Sources */,
 				1F3260D821566C24007921DF /* AppDelegate.swift in Sources */,
 				1F3260EC2156F900007921DF /* CustomSequencer.swift in Sources */,
 				1F3260F02157B8A7007921DF /* SharedSequencerVC.swift in Sources */,

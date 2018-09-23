@@ -27,10 +27,11 @@ class SharedSequencerVC: UIViewController {
     }
     
     @IBAction func play(_ sender: Any) {
-    
+        customSeq.play()
     }
     
     @IBAction func stop(_ sender: Any) {
+        customSeq.stop()
     }
     
 }
