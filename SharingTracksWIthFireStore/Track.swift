@@ -14,8 +14,6 @@ struct FirebaseURL {
     static let topLevel = Firestore.firestore().collection("tracks")
 }
 
-
-
 struct Track {
     var trackNum: Int
     var channel: UInt8 = 0
@@ -95,7 +93,8 @@ extension CustomSequencer {
         let collection = FirebaseURL.topLevel
         for (i, track) in seq.tracks.enumerated() {
             let fbTrack = Track(trackNum: i, track: track)
-            let doc = collection.addDocument(data: fbTrack.dictionary)
+            let doc = collection.document(fbTrack.trackID)
+            doc.setData(fbTrack.dictionary)
             let events = doc.collection("events")
             for event in fbTrack.events {
                 events.addDocument(data: event.dictionary)
