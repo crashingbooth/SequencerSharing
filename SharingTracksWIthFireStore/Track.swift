@@ -32,9 +32,9 @@ struct Track {
         }
     }
     
-    init(trackNum: Int, channel: UInt8
-        , events: [MIDIEvent]
-        ) {
+    init(trackNum: Int,
+         channel: UInt8,
+         events: [MIDIEvent]) {
         self.trackNum = trackNum
         self.channel = channel
         self.events = events
@@ -47,17 +47,21 @@ struct Track {
         ]
     }
     
-//    init?(dictionary: [String : Any]) {
-//        guard let trackNum = dictionary["trackNum"] as? Int,
-//            let channel = dictionary["channel"] as? UInt8
-////            let events = dictionary["events"] as? [MIDIEvent]
-//            else { return nil }
-//
-//        self.init(trackNum: trackNum,
-//                  channel: channel
-////                  events: events
-//        )
-//    }
+    var noteData: [AKMIDINoteData] {
+        return events.map { $0.noteData }
+    }
+    
+    init?(dictionary: [String : Any]) {
+        guard let trackNum = dictionary["trackNum"] as? Int,
+            let channel = dictionary["channel"] as? UInt8
+            else { return nil }
+
+        self.init(trackNum: trackNum,
+                  channel: channel,
+                  events: [MIDIEvent]()
+
+        )
+    }
 }
 
 
