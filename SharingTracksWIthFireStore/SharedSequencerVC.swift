@@ -23,7 +23,7 @@ class SharedSequencerVC: UIViewController {
     }
     
     @IBAction func sendTracks(_ sender: Any) {
-    
+        customSeq.postTracks()
     }
     
     @IBAction func play(_ sender: Any) {

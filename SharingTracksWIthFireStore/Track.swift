@@ -15,19 +15,47 @@ import Firebase
 struct Track {
     var trackNum: Int
     var channel: UInt8 = 0
-    var events: [MIDIEvent]
+//    var events: [MIDIEvent]
     
     init(trackNum: Int, track: AKMusicTrack) {
         self.trackNum = trackNum
         
         let data = track.getMIDINoteData()
-        self.events = data.map { MIDIEvent(data: $0)}
+//        self.events = data.map { MIDIEvent(data: $0)}
         if !data.isEmpty {
             channel = data[0].channel
         }
     }
     
+    init(trackNum: Int, channel: UInt8
+//        , events: [MIDIEvent]
+        ) {
+        self.trackNum = trackNum
+        self.channel = channel
+//        self.events = events
+    }
+    
+    var dictionary: [String: Any] {
+        return [
+            "trackNum": trackNum,
+            "channel": channel,
+//            "events": events
+        ]
+    }
+    
+    init?(dictionary: [String : Any]) {
+        guard let trackNum = dictionary["trackNum"] as? Int,
+            let channel = dictionary["channel"] as? UInt8
+//            let events = dictionary["events"] as? [MIDIEvent]
+            else { return nil }
+        
+        self.init(trackNum: trackNum,
+                  channel: channel
+//                  events: events
+        )
+    }
 }
+
 
 struct MIDIEvent {
     var noteNumber: MIDINoteNumber
@@ -48,7 +76,10 @@ struct MIDIEvent {
 extension CustomSequencer {
     func postTracks() {
         let collection = Firestore.firestore().collection("tracks")
-        
+        for (i, track) in seq.tracks.enumerated() {
+            let fbTrack = Track(trackNum: i, track: track)
+            collection.addDocument(data: fbTrack.dictionary)
+        }
     }
 }
 
