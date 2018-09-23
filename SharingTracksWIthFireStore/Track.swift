@@ -11,7 +11,18 @@ import AudioKit
 
 struct Track {
     var trackNum: Int
+    var channel: UInt8 = 0
     var events: [MIDIEvent]
+    
+    init(trackNum: Int, track: AKMusicTrack) {
+        self.trackNum = trackNum
+        
+        let data = track.getMIDINoteData()
+        self.events = data.map { MIDIEvent(data: $0)}
+        if !data.isEmpty {
+            channel = data[0].channel
+        }
+    }
     
 }
 
