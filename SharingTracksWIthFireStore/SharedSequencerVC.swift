@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SharedSequencerVC: UIViewController {
     var customSeq: CustomSequencer!
@@ -34,6 +35,18 @@ class SharedSequencerVC: UIViewController {
         customSeq.stop()
     }
     
+    @IBAction func getTracks(_ sender: Any) {
+        let colRef = FirebaseURL.topLevel.document("id-2").collection("events").getDocuments() {
+            (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let arr = querySnapshot!.documents.compactMap { MIDIEvent(dictionary: $0.data())?.noteData }
+                self.customSeq.clear()
+                self.customSeq.seq.tracks[0].replaceMIDINoteData(with: arr)
+            }
+        }
+    }
 }
 
 

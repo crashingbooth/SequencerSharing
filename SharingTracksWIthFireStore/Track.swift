@@ -77,7 +77,7 @@ struct MIDIEvent {
         self.velocity = data.velocity
         self.channel = data.channel
         self.position = data.position.beats
-        self.duration = data.position.beats
+        self.duration = data.duration.beats
     }
     
     init(noteNumber: MIDINoteNumber,
