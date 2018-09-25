@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class SharedSequencerVC: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     var customSeq: CustomSequencer!
     override func viewDidLoad() {
         super.viewDidLoad()
