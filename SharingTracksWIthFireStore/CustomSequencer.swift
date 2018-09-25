@@ -74,3 +74,17 @@ class CustomSequencer {
     }
     
 }
+
+
+extension AKMusicTrack {
+    func transpose(steps: Int) {
+        let data = getMIDINoteData()
+        let transposedData: [AKMIDINoteData] = data.map {
+            let newPitch = UInt8(Int($0.noteNumber) + steps)
+            guard (0 ..< 128) ~= newPitch else { return $0 }
+            var note = $0
+            note.noteNumber = newPitch
+            return note }
+        replaceMIDINoteData(with: transposedData)
+    }
+}
