@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+enum TrackCellState {
+    case off, currentlyPlaying, onDeck
+}
 class TrackCell: UICollectionViewCell {
-    
+    var cellState: TrackCellState = .off
 }
