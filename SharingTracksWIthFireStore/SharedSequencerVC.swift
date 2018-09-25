@@ -16,6 +16,7 @@ class SharedSequencerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customSeq = CustomSequencer()
+        collectionView.delegate = self
     }
     
     @IBAction func loadFile(_ sender: Any) {
@@ -60,3 +61,16 @@ extension SharedSequencerVC: UIDocumentPickerDelegate {
         
     }
 }
+
+extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    
+}
+
