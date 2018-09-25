@@ -15,7 +15,7 @@
 		1F3260EC2156F900007921DF /* CustomSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260EB2156F900007921DF /* CustomSequencer.swift */; };
 		1F3260EE2156FB44007921DF /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260ED2156FB44007921DF /* Track.swift */; };
 		1F3260F02157B8A7007921DF /* SharedSequencerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3260EF2157B8A7007921DF /* SharedSequencerVC.swift */; };
-		1F751CBB215A4E1500EEFD2E /* trackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F751CBA215A4E1500EEFD2E /* trackCell.swift */; };
+		1F751CBB215A4E1500EEFD2E /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F751CBA215A4E1500EEFD2E /* TrackCell.swift */; };
 		1F751CBD215A4ECC00EEFD2E /* SequencerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F751CBC215A4ECC00EEFD2E /* SequencerManager.swift */; };
 		810F7C45772051782BDD0C96 /* Pods_SharingTracksWIthFireStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */; };
 /* End PBXBuildFile section */
@@ -32,7 +32,7 @@
 		1F3260EB2156F900007921DF /* CustomSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSequencer.swift; sourceTree = "<group>"; };
 		1F3260ED2156FB44007921DF /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		1F3260EF2157B8A7007921DF /* SharedSequencerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSequencerVC.swift; sourceTree = "<group>"; };
-		1F751CBA215A4E1500EEFD2E /* trackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackCell.swift; sourceTree = "<group>"; };
+		1F751CBA215A4E1500EEFD2E /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		1F751CBC215A4ECC00EEFD2E /* SequencerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerManager.swift; sourceTree = "<group>"; };
 		265CC33DC3E692FF55B54943 /* Pods_SharingTracksWIthFireStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharingTracksWIthFireStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		548F9AF35D7718CDEB3FD332 /* Pods-SharingTracksWIthFireStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingTracksWIthFireStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharingTracksWIthFireStore/Pods-SharingTracksWIthFireStore.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				1F3260D721566C24007921DF /* AppDelegate.swift */,
 				1F3260EB2156F900007921DF /* CustomSequencer.swift */,
 				1F3260DB21566C24007921DF /* Main.storyboard */,
-				1F751CBA215A4E1500EEFD2E /* trackCell.swift */,
+				1F751CBA215A4E1500EEFD2E /* TrackCell.swift */,
 				1F3260EF2157B8A7007921DF /* SharedSequencerVC.swift */,
 				1F751CBC215A4ECC00EEFD2E /* SequencerManager.swift */,
 				1F3260ED2156FB44007921DF /* Track.swift */,
@@ -262,7 +262,7 @@
 				1F3260EC2156F900007921DF /* CustomSequencer.swift in Sources */,
 				1F3260F02157B8A7007921DF /* SharedSequencerVC.swift in Sources */,
 				1F3260EE2156FB44007921DF /* Track.swift in Sources */,
-				1F751CBB215A4E1500EEFD2E /* trackCell.swift in Sources */,
+				1F751CBB215A4E1500EEFD2E /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

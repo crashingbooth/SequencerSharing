@@ -13,9 +13,11 @@ class SharedSequencerVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var customSeq: CustomSequencer!
+    var seqManager: SequencerManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         customSeq = CustomSequencer()
+        seqManager = SequencerManager()
         collectionView.delegate = self
     }
     
@@ -64,11 +66,16 @@ extension SharedSequencerVC: UIDocumentPickerDelegate {
 
 extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return seqManager.tracks[section].numPossibleEvents
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackCell", for: indexPath) as? TrackCell else { return UICollectionViewCell() }
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return seqManager.numTracks
     }
     
     
