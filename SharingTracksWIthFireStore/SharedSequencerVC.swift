@@ -19,6 +19,7 @@ class SharedSequencerVC: UIViewController {
         customSeq = CustomSequencer()
         seqManager = SequencerManager()
         collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     @IBAction func loadFile(_ sender: Any) {
@@ -70,7 +71,7 @@ extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackCell", for: indexPath) as? TrackCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.trackCell, for: indexPath) as? TrackCell else { return UICollectionViewCell() }
         cell.backgroundColor = .red
         return cell
     }
