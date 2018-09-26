@@ -64,13 +64,14 @@ extension SharedSequencerVC: UIDocumentPickerDelegate {
     }
 }
 
-extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return seqManager.tracks[section].numPossibleEvents
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackCell", for: indexPath) as? TrackCell else { return UICollectionViewCell() }
+        cell.backgroundColor = .red
         return cell
     }
     
