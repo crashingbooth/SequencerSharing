@@ -72,7 +72,7 @@ extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.trackCell, for: indexPath) as? TrackCell else { return UICollectionViewCell() }
-        cell.backgroundColor = .red
+        cell.backgroundColor = indexPath.section % 2 == 0 ? .red : .black
         return cell
     }
     

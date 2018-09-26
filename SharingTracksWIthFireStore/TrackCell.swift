@@ -14,4 +14,19 @@ enum TrackCellState {
 }
 class TrackCell: UICollectionViewCell {
     var cellState: TrackCellState = .off
+    
+    fileprivate func setup() {
+        layer.cornerRadius = 10
+        clipsToBounds = true
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
 }
