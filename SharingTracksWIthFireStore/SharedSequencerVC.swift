@@ -20,6 +20,9 @@ class SharedSequencerVC: UIViewController {
         seqManager = SequencerManager()
         collectionView.delegate = self
         collectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        collectionView.collectionViewLayout = layout
     }
     
     @IBAction func loadFile(_ sender: Any) {
@@ -79,7 +82,6 @@ extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return seqManager.numTracks
     }
-    
     
 }
 
