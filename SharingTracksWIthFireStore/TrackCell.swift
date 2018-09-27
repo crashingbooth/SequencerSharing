@@ -13,11 +13,24 @@ enum TrackCellState {
     case off, currentlyPlaying, onDeck
 }
 class TrackCell: UICollectionViewCell {
-    var cellState: TrackCellState = .off
+    var cellState: TrackCellState = .off {
+        didSet {
+            switch cellState {
+            case .off:
+                backgroundColor = .black
+                layer.borderColor = UIColor.black.cgColor
+            case .currentlyPlaying:
+                backgroundColor = .red
+            case .onDeck:
+                layer.borderColor = UIColor.red.cgColor
+            }
+        }
+    }
     
     fileprivate func setup() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = 10.0
         clipsToBounds = true
+        layer.borderWidth = 3.0
     }
     
     override init(frame: CGRect) {
