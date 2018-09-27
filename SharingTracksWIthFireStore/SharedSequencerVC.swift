@@ -83,5 +83,9 @@ extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSourc
         return seqManager.numTracks
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
 }
 
