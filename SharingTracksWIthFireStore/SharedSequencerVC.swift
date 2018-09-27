@@ -84,8 +84,15 @@ extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let managerIndex = indexPath.section
+        let selection = indexPath.row
+        guard managerIndex < seqManager.numTracks && selection < seqManager.tracks[managerIndex].numPossibleEvents else { return }
+        // try to extract MIDI data: allow empty data, but return if there is an error
+        // call trackWillChange
+        // update cell state, maybe setNeedDisplay
     }
     
 }
+
+// sequencer must get data from sequencerManager, but must also update collectionView
 

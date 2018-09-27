@@ -24,7 +24,7 @@ class SequencerManager: NSObject {
     
 }
 
-struct TrackDetails {
+class TrackDetails {
     var currentlyPlaying: Int?
     var nextUp: Int?
     var numPossibleEvents = 4
@@ -32,12 +32,18 @@ struct TrackDetails {
     var sequencerIndex: Int = 0
     var nextTrackData: [AKMIDINoteData]?
     
-    mutating func update() {
+    func update() {
         guard let next = nextUp else { return }
         currentlyPlaying = next
         nextUp = nil
         nextTrackData = nil
     }
+    
+    func trackWillChange(newData: [AKMIDINoteData], newSelection: Int) {
+        nextTrackData = newData
+        nextUp = newSelection
+    }
+    
 }
 
 
