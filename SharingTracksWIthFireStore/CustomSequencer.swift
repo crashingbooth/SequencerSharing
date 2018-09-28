@@ -55,7 +55,7 @@ class CustomSequencer {
         }
     }
     
-    
+    // MARK: - Interface
     func play() {
         seq.play()
     }
@@ -72,7 +72,6 @@ class CustomSequencer {
     func loadFromURL(_ url: URL) {
         seq.loadMIDIFile(fromURL: url)
     }
-    
 }
 
 

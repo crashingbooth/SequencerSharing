@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import AudioKit
 
 class SharedSequencerVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var customSeq: CustomSequencer!
     var seqManager: SequencerManager!
+    let trackIds: [String] = ["id-0", "id-1", "id-2", "id-3"]
     override func viewDidLoad() {
         super.viewDidLoad()
         customSeq = CustomSequencer()
@@ -53,6 +55,20 @@ class SharedSequencerVC: UIViewController {
                 let arr = querySnapshot!.documents.compactMap { MIDIEvent(dictionary: $0.data())?.noteData }
                 self.customSeq.clear()
                 self.customSeq.seq.tracks[0].replaceMIDINoteData(with: arr)
+            }
+        }
+    }
+    
+    fileprivate func getTrack(trackIndex: Int, newSelection: Int) {
+        let id = trackIds[trackIndex]
+        FirebaseURL.topLevel.document(id).collection("events").getDocuments() {
+            (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let newData = querySnapshot!.documents.compactMap { MIDIEvent(dictionary: $0.data())?.noteData }
+                
+                self.seqManager.tracks[trackIndex].trackWillChange(newData: newData, newSelection: newSelection)
             }
         }
     }
