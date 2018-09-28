@@ -69,6 +69,10 @@ class SharedSequencerVC: UIViewController {
                 let newData = querySnapshot!.documents.compactMap { MIDIEvent(dictionary: $0.data())?.noteData }
                 
                 self.seqManager.tracks[trackIndex].trackWillChange(newData: newData, newSelection: newSelection)
+                if let cell = self.collectionView.cellForItem(at: IndexPath(row: newSelection, section: trackIndex)) as?  TrackCell {
+                    cell.cellState = .onDeck
+                    cell.setNeedsDisplay()
+                }
             }
         }
     }
@@ -103,9 +107,8 @@ extension SharedSequencerVC: UICollectionViewDelegate, UICollectionViewDataSourc
         let managerIndex = indexPath.section
         let selection = indexPath.row
         guard managerIndex < seqManager.numTracks && selection < seqManager.tracks[managerIndex].numPossibleEvents else { return }
-        // try to extract MIDI data: allow empty data, but return if there is an error
-        // call trackWillChange
-        // update cell state, maybe setNeedDisplay
+        getTrack(trackIndex: managerIndex, newSelection: selection)
+        collectionView.reloadData()
     }
     
 }
