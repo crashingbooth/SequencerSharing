@@ -37,6 +37,7 @@ class SequencerManager: NSObject {
 
 protocol SequencerManagerDelegate: class {
     var isUpdateAvailable: Bool { get }
+    var changes: [Int: [AKMIDINoteData]] { get }
     
 }
 

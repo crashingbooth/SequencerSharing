@@ -12,19 +12,23 @@ import AudioKit
 class CustomSequencer {
     var seq: AKSequencer!
     var callbackInst: AKCallbackInstrument!
+    var adminTrack: AKMusicTrack!
+    var adminCallbackInst: AKCallbackInstrument!
     var tracks: [AKMusicTrack]!
     var oscBank: AKOscillatorBank!
     var mixer: AKMixer!
     let numTracks = 5
+    let seqLength: MusicTimeStamp = 4.0
+    weak var sequencerManagerDelegate: SequencerManagerDelegate?
     
     init() {
         setUpSequencer()
         setUpSound()
-        
     }
     
     fileprivate func setUpSequencer() {
         seq = AKSequencer()
+        setUpAdminTrack()
         tracks = [AKMusicTrack]()
         callbackInst = AKCallbackInstrument()
         callbackInst.callback = callback
@@ -32,6 +36,25 @@ class CustomSequencer {
             let track = seq.newTrack()!
             track.setMIDIOutput(callbackInst.midiIn)
             tracks.append(track)
+        }
+    }
+    
+    fileprivate func setUpAdminTrack() {
+        adminTrack = seq.newTrack()!
+        adminCallbackInst = AKCallbackInstrument()
+        adminTrack.add(noteNumber: 60,
+                       velocity: 60,
+                       position: AKDuration(beats: seqLength - 0.1),
+                       duration: AKDuration(beats: 0.1))
+        adminCallbackInst.callback = { status, note, vel in
+            guard status == .noteOn else { return }
+            guard let delegate = self.sequencerManagerDelegate else { return }
+            if delegate.isUpdateAvailable {
+                for trackIndex in delegate.changes.keys {
+                    guard let data = delegate.changes[trackIndex] else { continue }
+                    self.tracks[trackIndex].replaceMIDINoteData(with: data)
+                }
+            }
         }
     }
     
