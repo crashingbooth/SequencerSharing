@@ -12,6 +12,18 @@ import UIKit
 enum TrackCellState {
     case off, currentlyPlaying, onDeck
 }
+extension TrackCellState {
+    init(track: TrackDetails, cellIndex: Int) {
+        if let nextUp = track.nextUp, nextUp == cellIndex {
+            self = .onDeck
+        } else if let current = track.currentlyPlaying, current == cellIndex {
+            self = .currentlyPlaying
+        } else {
+            self = .off
+        }
+    }
+}
+
 class TrackCell: UICollectionViewCell {
     var cellState: TrackCellState = .off {
         didSet {
