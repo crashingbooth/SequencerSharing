@@ -14,7 +14,7 @@ class CustomSequencer {
     var callbackInst: AKCallbackInstrument!
     var adminTrack: AKMusicTrack!
     var adminCallbackInst: AKCallbackInstrument!
-    var tracks: [AKMusicTrack]!
+    var midiTracks: [AKMusicTrack]!
     var oscBank: AKOscillatorBank!
     var mixer: AKMixer!
     let numTracks = 5
@@ -29,19 +29,21 @@ class CustomSequencer {
     fileprivate func setUpSequencer() {
         seq = AKSequencer()
         setUpAdminTrack()
-        tracks = [AKMusicTrack]()
+        midiTracks = [AKMusicTrack]()
         callbackInst = AKCallbackInstrument()
         callbackInst.callback = callback
         for _ in 0 ..< numTracks {
             let track = seq.newTrack()!
             track.setMIDIOutput(callbackInst.midiIn)
-            tracks.append(track)
+            midiTracks.append(track)
         }
+        seq.enableLooping(AKDuration(beats: seqLength))
     }
     
     fileprivate func setUpAdminTrack() {
         adminTrack = seq.newTrack()!
         adminCallbackInst = AKCallbackInstrument()
+        adminTrack.setMIDIOutput(adminCallbackInst.midiIn)
         adminTrack.add(noteNumber: 60,
                        velocity: 60,
                        position: AKDuration(beats: seqLength - 0.1),
@@ -52,7 +54,7 @@ class CustomSequencer {
             if delegate.isUpdateAvailable {
                 for trackIndex in delegate.changes.keys {
                     guard let data = delegate.changes[trackIndex] else { continue }
-                    self.tracks[trackIndex].replaceMIDINoteData(with: data)
+                    self.replaceTrack(id: trackIndex, data: data)
                 }
             }
         }
@@ -79,6 +81,10 @@ class CustomSequencer {
     }
     
     // MARK: - Interface
+    var isPlaying: Bool {
+        return seq.isPlaying
+    }
+    
     func play() {
         seq.play()
     }
@@ -94,6 +100,10 @@ class CustomSequencer {
     
     func loadFromURL(_ url: URL) {
         seq.loadMIDIFile(fromURL: url)
+    }
+    
+    func replaceTrack(id: Int, data: [AKMIDINoteData]) {
+        midiTracks[id].replaceMIDINoteData(with: data)
     }
 }
 

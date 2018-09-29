@@ -20,6 +20,7 @@ class SharedSequencerVC: UIViewController {
         super.viewDidLoad()
         customSeq = CustomSequencer()
         seqManager = SequencerManager()
+        customSeq.sequencerManagerDelegate = seqManager
         collectionView.delegate = self
         collectionView.dataSource = self
         let layout = UICollectionViewFlowLayout()
@@ -59,6 +60,7 @@ class SharedSequencerVC: UIViewController {
         }
     }
     
+    // neeeds refactor
     fileprivate func getTrack(trackIndex: Int, newSelection: Int) {
         let id = trackIds[trackIndex]
         FirebaseURL.topLevel.document(id).collection("events").getDocuments() {
@@ -67,11 +69,19 @@ class SharedSequencerVC: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 let newData = querySnapshot!.documents.compactMap { MIDIEvent(dictionary: $0.data())?.noteData }
-                
-                self.seqManager.tracks[trackIndex].trackWillChange(newData: newData, newSelection: newSelection)
-                if let cell = self.collectionView.cellForItem(at: IndexPath(row: newSelection, section: trackIndex)) as?  TrackCell {
-                    cell.cellState = .onDeck
-                    cell.setNeedsDisplay()
+                if !self.customSeq.isPlaying {
+                    self.customSeq.replaceTrack(id: trackIndex, data: newData)
+                    self.seqManager.tracks[trackIndex].currentlyPlaying = newSelection
+                    if let cell = self.collectionView.cellForItem(at: IndexPath(row: newSelection, section: trackIndex)) as?  TrackCell {
+                        cell.cellState = .currentlyPlaying
+                        cell.setNeedsDisplay()
+                    }
+                } else {
+                    self.seqManager.tracks[trackIndex].trackWillChange(newData: newData, newSelection: newSelection)
+                    if let cell = self.collectionView.cellForItem(at: IndexPath(row: newSelection, section: trackIndex)) as?  TrackCell {
+                        cell.cellState = .onDeck
+                        cell.setNeedsDisplay()
+                    }
                 }
             }
         }

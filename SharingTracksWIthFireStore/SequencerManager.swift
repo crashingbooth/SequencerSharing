@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-class SequencerManager: NSObject {
+class SequencerManager: NSObject, SequencerManagerDelegate {
     let numTracks = 4
     var tracks: [TrackDetails]
     var isUpdateAvailable: Bool {
