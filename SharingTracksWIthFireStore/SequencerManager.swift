@@ -17,10 +17,26 @@ class SequencerManager: NSObject {
         return needsUpdateTracks.isNotEmpty
     }
     
+    var changes: [Int: [AKMIDINoteData]] {
+        var trackDict = [Int: [AKMIDINoteData]]()
+        for track in tracks {
+            if let _ = track.nextUp,
+                let nextData = track.nextTrackData{
+                trackDict[track.sequencerIndex] = nextData
+            }
+        }
+        return trackDict
+    }
+    
     override init() {
         tracks = (0 ..< numTracks).map { _ in TrackDetails() }
     }
     
+    
+}
+
+protocol SequencerManagerDelegate: class {
+    var isUpdateAvailable: Bool { get }
     
 }
 
